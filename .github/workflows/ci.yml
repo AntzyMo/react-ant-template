@@ -21,8 +21,8 @@ jobs:
       # 执行npm脚本打包项目
       - name: Install and Build
         run: |
-          pnpm install
-          pnpm run build
+          npm install
+          npm run build
       
       # 执行JamesIves/github-pages-deploy-action将项目发布到Github Pages
       - name: Deploy
