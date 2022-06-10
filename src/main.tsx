@@ -7,7 +7,10 @@ import { ConfigProvider } from 'antd'
 import zhCN from 'antd/lib/locale/zh_CN'
 import 'antd/dist/antd.less'
 
+import { worker } from './mocks/browser'
+
 import App from './App'
+worker.start()
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <HashRouter>

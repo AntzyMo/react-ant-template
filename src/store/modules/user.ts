@@ -11,7 +11,7 @@ export const user = createSlice({
       state.token = payload
       setStorage('token', payload)
     },
-    removeToken: (state) => {
+    removeToken: state => {
       state.token = ''
       removeStorage('token')
     }

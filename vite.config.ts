@@ -5,6 +5,8 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  /* 可以删除 只是用来配置git pages */
+  base: '/react-ant-template/',
   plugins: [react()],
   resolve: {
     alias: {
@@ -18,4 +20,16 @@ export default defineConfig({
       }
     }
   }
+
+  // server: {
+  //   host: true,
+  //   proxy: {
+  //     "/api": {
+  //       // target:'https://test.jobcn.com', // 测试
+  //       target:'/mock', // 测试
+  //       changeOrigin: true,
+  //       rewrite: (path) => path.replace(/^\/api/, ""),
+  //     },
+  //   },
+  // },
 })

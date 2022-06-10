@@ -4,9 +4,9 @@ import { message } from 'antd'
 
 // 创建一个axios实例
 const service = axios.create({
-  baseURL: '/api',
+  baseURL: '/mock',
   timeout: 30000,
-  transformRequest: [(data) => qs.stringify(data)],
+  transformRequest: [data => qs.stringify(data)],
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded'
   }
@@ -14,17 +14,17 @@ const service = axios.create({
 
 // 设置请求拦截
 service.interceptors.request.use(
-  (config) => {
+  config => {
     return config
   },
-  (error) => {
+  error => {
     return Promise.reject(error)
   }
 )
 
 // 设置响应拦截
 service.interceptors.response.use(
-  (res) => {
+  res => {
     const { code, msg, ...rest } = res.data
     if (code === 200) {
       return rest
@@ -33,7 +33,7 @@ service.interceptors.response.use(
       return Promise.reject(msg)
     }
   },
-  (err) => {
+  err => {
     message.error(err)
     return Promise.reject(err)
   }

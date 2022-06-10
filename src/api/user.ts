@@ -1,9 +1,9 @@
 import request from '../utils/request'
 
 // 登录
-export const login = (data:any) => {
+export const login = (data: any) => {
   return request({
-    url: '/login',
+    url: '/user/login',
     method: 'post',
     data
   })
