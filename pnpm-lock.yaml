@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@ant-design/icons': ^4.7.0
   '@reduxjs/toolkit': ^1.8.2
+  '@types/mockjs': ^1.0.6
   '@types/node': ^17.0.41
   '@types/qs': ^6.9.7
   '@types/react': ^18.0.0
@@ -22,7 +23,9 @@ specifiers:
   eslint-plugin-react: ^7.30.0
   husky: ^8.0.1
   less: ^4.1.3
+  mockjs: ^1.1.0
   msw: ^0.42.1
+  normalize.css: ^8.0.1
   postcss: ^8.4.14
   postcss-preset-env: ^7.7.1
   prettier: ^2.6.2
@@ -41,8 +44,10 @@ specifiers:
 dependencies:
   '@ant-design/icons': 4.7.0_ef5jwxihqo6n7gxfmzogljlgcm
   '@reduxjs/toolkit': 1.8.2_ctm756ikdwcjcvyfxxwskzbr6q
+  '@types/mockjs': 1.0.6
   antd: 4.21.0_ef5jwxihqo6n7gxfmzogljlgcm
   axios: 0.27.2
+  normalize.css: 8.0.1
   qs: 6.10.5
   react: 18.1.0
   react-dom: 18.1.0_react@18.1.0
@@ -68,6 +73,7 @@ devDependencies:
   eslint-plugin-react: 7.30.0_eslint@8.17.0
   husky: 8.0.1
   less: 4.1.3
+  mockjs: 1.1.0
   msw: 0.42.1_typescript@4.7.3
   postcss: 8.4.14
   postcss-preset-env: 7.7.1_postcss@8.4.14
@@ -700,6 +706,10 @@ packages:
   /@types/json5/0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
     dev: true
+
+  /@types/mockjs/1.0.6:
+    resolution: {integrity: sha512-Yu5YlqbYZyqsd6LjO4e8ONJDN9pTSnciHDcRP4teNOh/au2b8helFhgRx+3w8xsTFEnwr9jtfTVJbAx+eYmlHA==}
+    dev: false
 
   /@types/node/17.0.41:
     resolution: {integrity: sha512-xA6drNNeqb5YyV5fO3OAEsnXLfO7uF0whiOfPTz5AeDo8KeZFmODKnvwPymMNO8qE/an8pVY/O50tig2SQCrGw==}
@@ -2909,6 +2919,13 @@ packages:
     resolution: {integrity: sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==}
     dev: true
 
+  /mockjs/1.1.0:
+    resolution: {integrity: sha512-eQsKcWzIaZzEZ07NuEyO4Nw65g0hdWAyurVol1IPl1gahRwY+svqzfgfey8U8dahLwG44d6/RwEzuK52rSa/JQ==}
+    hasBin: true
+    dependencies:
+      commander: 8.3.0
+    dev: true
+
   /moment/2.29.3:
     resolution: {integrity: sha512-c6YRvhEo//6T2Jz/vVtYzqBzwvPT95JBQ+smCytzf7c50oMZRsR/a4w88aD34I+/QVSfnoAnSBFPJHItlOMJVw==}
     dev: false
@@ -3025,6 +3042,10 @@ packages:
     resolution: {integrity: sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==}
     engines: {node: '>=0.10.0'}
     dev: true
+
+  /normalize.css/8.0.1:
+    resolution: {integrity: sha512-qizSNPO93t1YUuUhP22btGOo3chcvDFqFaj2TRybP0DMxkHOCTYwp3n34fel4a31ORXy4m1Xq0Gyqpb5m33qIg==}
+    dev: false
 
   /nth-check/2.1.1:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}

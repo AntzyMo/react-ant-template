@@ -7,10 +7,13 @@ import { ConfigProvider } from 'antd'
 import zhCN from 'antd/lib/locale/zh_CN'
 import 'antd/dist/antd.less'
 
-import { worker } from './mocks/browser'
+// 清除默认样式
+import 'normalize.css/normalize.css'
+
+// mock 用于测试用例
+import './mocks'
 
 import App from './App'
-worker.start()
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <HashRouter>
