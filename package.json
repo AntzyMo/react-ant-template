@@ -52,7 +52,8 @@
     "vite-plugin-html": "^3.2.0"
   },
   "lint-staged": {
-    "*.{ts,tsx,jsx}": "eslint --fix"
+    "*.{ts,tsx,jsx}": "eslint --fix",
+    "*.{js,css,less,md,ts,tsx}": "prettier --write"
   },
   "msw": {
     "workerDirectory": "public"
