@@ -1,5 +1,6 @@
 import './index.less'
 import { Button, Form, Input } from 'antd'
+import { LockOutlined, UserOutlined } from '@ant-design/icons'
 import { login } from '@/api/user'
 import { useDispatch } from 'react-redux'
 import { setToken } from '@/store/modules/user'
@@ -22,24 +23,12 @@ const Login = () => {
     dispatch(setToken(token))
   }
 
-  const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed111', errorInfo)
-  }
-
   return (
     <div className='Login'>
       <div className='Login__box'>
         <div className='Login__box-header'>系统登录</div>
-        <Form
-          className='Login__box-formCom'
-          form={form}
-          name='basic'
-          onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
-          autoComplete='off'
-        >
+        <Form form={form} name='login' onFinish={onFinish} size='large'>
           <Form.Item
-            label='用户名'
             name='username'
             initialValue='admin'
             rules={[
@@ -49,11 +38,13 @@ const Login = () => {
               }
             ]}
           >
-            <Input />
+            <Input
+              className='input'
+              prefix={<UserOutlined className='site-form-item-icon' />}
+            />
           </Form.Item>
 
           <Form.Item
-            label='密码'
             name='password'
             initialValue='123456'
             rules={[
@@ -63,11 +54,14 @@ const Login = () => {
               }
             ]}
           >
-            <Input.Password />
+            <Input.Password
+              className='input'
+              prefix={<LockOutlined className='site-form-item-icon' />}
+            />
           </Form.Item>
 
           <Form.Item>
-            <Button type='primary' htmlType='submit'>
+            <Button block type='primary' htmlType='submit'>
               登 录
             </Button>
           </Form.Item>
