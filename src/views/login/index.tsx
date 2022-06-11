@@ -27,21 +27,21 @@ const Login = () => {
   }
 
   return (
-    <div className="Login">
-      <div className="Login__box">
-        <div className="Login__box-header">系统登录</div>
+    <div className='Login'>
+      <div className='Login__box'>
+        <div className='Login__box-header'>系统登录</div>
         <Form
-          className="Login__box-formCom"
+          className='Login__box-formCom'
           form={form}
-          name="basic"
+          name='basic'
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
-          autoComplete="off"
+          autoComplete='off'
         >
           <Form.Item
-            label="用户名"
-            name="username"
-            initialValue="admin"
+            label='用户名'
+            name='username'
+            initialValue='admin'
             rules={[
               {
                 required: true,
@@ -53,9 +53,9 @@ const Login = () => {
           </Form.Item>
 
           <Form.Item
-            label="密码"
-            name="password"
-            initialValue="123456"
+            label='密码'
+            name='password'
+            initialValue='123456'
             rules={[
               {
                 required: true,
@@ -67,7 +67,7 @@ const Login = () => {
           </Form.Item>
 
           <Form.Item>
-            <Button type="primary" htmlType="submit">
+            <Button type='primary' htmlType='submit'>
               登 录
             </Button>
           </Form.Item>
