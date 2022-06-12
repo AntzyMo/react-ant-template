@@ -8,9 +8,6 @@ import react from '@vitejs/plugin-react'
 /* 生成依赖图 */
 import { visualizer } from 'rollup-plugin-visualizer'
 
-/* 自定义html模板 */
-import { createHtmlPlugin } from 'vite-plugin-html'
-
 /* 生成打包分析包 */
 const createVisualizer = (command: ConfigEnv['command']) => {
   if (command === 'build') {
@@ -25,17 +22,7 @@ const createVisualizer = (command: ConfigEnv['command']) => {
 export default defineConfig(({ command }) => ({
   /* 可以删除 只是用来配置git pages */
   base: command === 'build' ? '/react-ant-template/' : '/',
-  plugins: [
-    react(),
-    createVisualizer(command),
-    createHtmlPlugin({
-      inject: {
-        data: {
-          title: 'react-ant-template'
-        }
-      }
-    })
-  ],
+  plugins: [react(), createVisualizer(command)],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
