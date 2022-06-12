@@ -1,5 +1,6 @@
 import './index.less'
 import UseArrat from './components/useArr'
+
 const Home = () => {
   return (
     <div className='Home'>

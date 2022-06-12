@@ -4,11 +4,13 @@ import { LockOutlined, UserOutlined } from '@ant-design/icons'
 import { login } from '@/api/user'
 import { useDispatch } from 'react-redux'
 import { setToken } from '@/store/modules/user'
+import { useNavigate } from 'react-router-dom'
 import type { AppDispatch } from '@/store'
 
 const Login = () => {
   const dispatch = useDispatch<AppDispatch>()
   const [form] = Form.useForm()
+  const navigate = useNavigate()
 
   // 提交表单
   const onFinish = async (values: any) => {
@@ -21,6 +23,7 @@ const Login = () => {
     } = await login(values)
 
     dispatch(setToken(token))
+    navigate('/', { replace: true })
   }
 
   return (

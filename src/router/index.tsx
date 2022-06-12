@@ -1,55 +1,40 @@
-import { lazy } from 'react'
-import type { RouteObject } from 'react-router-dom'
+import { useEffect } from 'react'
+import { useRoutes, useLocation, useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import type { RootState } from '@/store'
 
-import Layout from '../layout'
+import router from './routes'
 
-const Home = lazy(() => import('../views/home'))
-const Page = lazy(() => import('../views/page'))
-const Page2 = lazy(() => import('../views/page1/page2'))
-const Page3 = lazy(() => import('../views/page1/page3'))
-const NoPage = lazy(() => import('../views/noPage'))
+// 白名单(不需要登录就可以访问的名单)
+const whiteList = ['/login']
 
-const router: RouteObject[] = [
-  {
-    path: '/',
-    element: <Layout />,
-    children: [
-      {
-        index: true,
-        element: <Home />
+const Router = () => {
+  const location = useLocation()
+  const navigate = useNavigate()
+  const element = useRoutes(router)
+  const { token } = useSelector((state: RootState) => state.usersReducer)
+  const { pathname } = location
+
+  const authRouter = () => {
+    if (token) {
+      // 如果有token
+      if (pathname === '/login') {
+        // 如果是登录状态 并且进入的页面是登录页面 则跳到首页
+        navigate('/', { replace: true })
       }
-    ]
-  },
-
-  {
-    path: '/page',
-    element: <Layout />,
-    children: [
-      {
-        index: true,
-        element: <Page />
+    } else {
+      if (!whiteList.includes(pathname)) {
+        console.log(44)
+        navigate('/login', { replace: true })
       }
-    ]
-  },
-
-  {
-    path: '/page1',
-    element: <Layout />,
-    children: [
-      {
-        index: true,
-        element: <Page2 />
-      },
-      {
-        path: 'page3',
-        element: <Page3 />
-      }
-    ]
-  },
-  {
-    path: '*',
-    element: <NoPage />
+    }
   }
-]
 
-export default router
+  useEffect(() => {
+    authRouter()
+  }, [pathname])
+
+  return <>{element}</>
+}
+
+export default Router
