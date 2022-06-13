@@ -1,14 +1,17 @@
+import './index.less'
 import { createElement } from 'react'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+
+import { Avatar, Dropdown, Menu } from 'antd'
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
   UserOutlined,
   CaretDownOutlined
 } from '@ant-design/icons'
-import { Avatar, Dropdown, Menu } from 'antd'
-import { useDispatch } from 'react-redux'
+
 import { removeToken } from '@/store/modules/user'
-import './index.less'
 
 interface props {
   collapsed: boolean
@@ -17,9 +20,11 @@ interface props {
 
 const MenuCom = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const handleMenuClick = (e: any) => {
     if (e.key === '1') {
       dispatch(removeToken())
+      navigate('/login', { replace: true })
     }
   }
 

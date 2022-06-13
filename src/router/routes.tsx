@@ -1,6 +1,5 @@
 import { lazy } from 'react'
-import type { RouteObject } from 'react-router-dom'
-
+import type { routes } from '@/type'
 import Layout from '../layout'
 import Login from '@/views/login'
 
@@ -10,14 +9,15 @@ const Page2 = lazy(() => import('../views/page1/page2'))
 const Page3 = lazy(() => import('../views/page1/page3'))
 const NoPage = lazy(() => import('../views/noPage'))
 
-export const asyncRoutesList: RouteObject[] = [
+export const asyncRoutesList: routes[] = [
   {
     path: '/',
     element: <Layout />,
     children: [
       {
         index: true,
-        element: <Home />
+        element: <Home />,
+        meta: { title: 'home' }
       }
     ]
   },
@@ -28,28 +28,32 @@ export const asyncRoutesList: RouteObject[] = [
     children: [
       {
         index: true,
-        element: <Page />
+        element: <Page />,
+        meta: { title: 'page' }
       }
     ]
   },
 
   {
-    path: '/page1',
+    path: '/pageBox',
     element: <Layout />,
+    meta: { title: 'pageBox' },
     children: [
       {
-        index: true,
-        element: <Page2 />
+        path: 'page1',
+        element: <Page2 />,
+        meta: { title: 'page1' }
       },
       {
-        path: 'page3',
-        element: <Page3 />
+        path: 'page2',
+        element: <Page3 />,
+        meta: { title: 'page2' }
       }
     ]
   }
 ]
 
-const basicRoutesList: RouteObject[] = [
+const basicRoutesList: routes[] = [
   {
     path: '/login',
     element: <Login />

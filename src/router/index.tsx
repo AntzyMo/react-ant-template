@@ -8,7 +8,8 @@ import router from './routes'
 // 白名单(不需要登录就可以访问的名单)
 const whiteList = ['/login']
 
-const Router = () => {
+/* 路由守卫 */
+const useAuthRouter = () => {
   const location = useLocation()
   const navigate = useNavigate()
   const element = useRoutes(router)
@@ -24,7 +25,6 @@ const Router = () => {
       }
     } else {
       if (!whiteList.includes(pathname)) {
-        console.log(44)
         navigate('/login', { replace: true })
       }
     }
@@ -34,6 +34,11 @@ const Router = () => {
     authRouter()
   }, [pathname])
 
+  return element
+}
+
+const Router = () => {
+  const element = useAuthRouter()
   return <>{element}</>
 }
 
